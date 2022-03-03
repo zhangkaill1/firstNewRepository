@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./loading.gif" alt="" style="display: none;">
+    <script src="./jquery-3.5.1.js"></script>
+    <script>
+        function addd (data) {
+            // console.log(data)
+            console.log(typeof data)
+            console.log(data.message)
+        }
+    </script>
+    <script>
+        $(function () {
+            $(document).ajaxStart(function(){
+                $('img').show()
+            })
+            $(document).ajaxStop(function () { 
+                $('img').hide()
+             })
+            $.ajax({
+                url: 'http://www.liulongbin.top:3006/api/jsonp?name=zs&age=25&callback=addd',
+                dataType: 'jsonp',
+                jsonpCallback: 'addd',
+                success: function (res) { 
+                    // console.log(res)
+                 }
+            })
+         })
+    </script>
+    <!-- <script src="http://www.liulongbin.top:3006/api/jsonp?callback=addd&name=zs&age=25"></script> -->
+    <!-- <script src="http://www.liulongbin.top:3006/api/jsonp"></script> -->
+</body>
+</html>
