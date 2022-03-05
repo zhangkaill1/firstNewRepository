@@ -1,0 +1,5 @@
+#忽略gif图片
+*.gif
+
+#忽略test文件夹内的test.txt
+test/
